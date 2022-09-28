@@ -1,0 +1,51 @@
+@startuml  facture_diagramme_classe
+
+class Client <<entity>> {
+    -nom: string
+    -adresse: string
+    -email: string
+
+    +modifierNom()
+    +modifierAdresse()
+    +modifierEmail()
+    +afficherNom()
+    +afficherAdresse()
+    +afficherEmail()
+}
+
+class Article <<entity>> {
+    -nom : string
+    -photo : string
+    -prix : float
+
+    +modifierNom()
+    +modifierPhoto()
+    +modifierPrix()
+    +afficherNom()
+    +afficherPhoto()
+    +afficherPrix()
+}
+
+
+class Facture <<entity>>{
+    -client : Client
+    -date  : datetime
+    -total : float
+    -articleList : array
+
+    +modifierClient()
+    +modifierDate()
+    +modifierTotal()
+    +ajouterArticle()
+    +supprimerArticle()
+
+}
+
+Client "1" -- "1" Facture
+Article "n" -- "1" Facture
+
+
+
+
+
+@enduml
